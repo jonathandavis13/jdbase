@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'jdbase'
+    version =  '0.0.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    // tag::actuator[]
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    // end::actuator[]
+    // tag::tests[]
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    // end::tests[]
+    
+    // https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
+	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.6.0'
+	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
+	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.6.0'
+	
+    
+}
+
